@@ -29,8 +29,8 @@ let medianWorkload = 0;
 // --------------------
 
 //temporary/work data declaration
-let WomenWorkLoad = 0;
-let WomenWorkCount = 0;
+let womenWorkLoad = 0;
+let womenWorkCount = 0;
 let sumOfAges = 0;
 let agesList = [];
 let workloadList = [];
@@ -268,8 +268,8 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
     { //when female 
     employee.name = femaleNames[getRandom(0,femaleNames.length)];
     employee.surname = femaleSurnames[getRandom(0,femaleSurnames.length)]; 
-    WomenWorkLoad = WomenWorkLoad + employee.workload;
-    WomenWorkCount++;
+    womenWorkLoad = womenWorkLoad + employee.workload;
+    womenWorkCount++;
     } 
 
     
