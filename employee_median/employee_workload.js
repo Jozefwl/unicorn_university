@@ -318,7 +318,7 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
      //https://javascript.info/rest-parameters-spread
 
     averageAge = sumOfAges/peopleCount;
-    averageWomenWorkload = WomenWorkLoad/WomenWorkCount;
+    averageWomenWorkload = womenWorkLoad/womenWorkCount;
     averageAge = parseInt(averageAge.toFixed(1));
     averageWomenWorkload = parseInt(averageWomenWorkload.toFixed(1));
 
