@@ -17,7 +17,7 @@ and other stackoverflow sources...
 
 //Declaring input data - this data serves as an input for the program
 const dtoIn = {
-    count: 10, //number of employees to be generated
+    count: 1500, //number of employees to be generated
     age: {
         min: 20, //minimum age of employee(s)
         max: 60  //maximum age of employee(s)
@@ -229,7 +229,7 @@ function medianCalculation(count,array){
         medianOut = ( array[count/2] + array[(count/2) + 1] ) / 2;
         }
         if(count%3 == 0){
-        medianOut = array[floor(count/2)];
+        medianOut = array[Math.floor(count/2)];
         }
 
         return medianOut;
