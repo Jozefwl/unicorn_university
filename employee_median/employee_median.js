@@ -53,6 +53,23 @@ const dtoIn = {
    
 */ 
 
+//Input error checking ---------------------------------------------------------
+if(dtoIn.count < 0 ){   //if count is less than 0 (generate negative employees)
+    const error = new Error("message")
+    error.code = "Wrong Input Count!" //throw Wrong Input Count error
+    throw error;
+
+}else if(dtoIn.age.min <= 0){ //if age is less||equal than 0 (not born yet)
+    const error = new Error("message")
+    error.code = "Wrong Input Minimum Age!"//throw Wrong Input Age error
+    throw error;
+}else if(dtoIn.age.max > 150){  //if age is less than 150 (high probability of being dead)
+    const error = new Error("message")
+    error.code = "Wrong Input Maximum Age!" //throw Wrong Input Age error
+    throw error;
+}
+// -----------------------------------------------------------------------------
+
 //Declaring output data - this data serves as an intermediary for operations done in the program
 
 let workload10 = 0;
