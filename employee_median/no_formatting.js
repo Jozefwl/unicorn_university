@@ -311,7 +311,7 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
 
     sortedByWorkload = [...employees10, ...employees20, ...employees30, ...employees40];
     //sortedEmployees = Object.assign({}.sortedByWorkload);
-    sortedByworkload = JSON.stringify(sortedByWorkload,null,2);
+    stringifiedByWorkload = JSON.stringify(sortedByWorkload,null,2);
     //const sortedbyWorkload = Object.assign({}, sortedByWorkload);
 
      //Spread Syntax (spread turns array into a list of arguments)
@@ -333,6 +333,9 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
     agesList.sort();
     medianAge = medianCalculation(peopleCount, agesList);
 
+    /*
+ 
+    */
 
     infoEmployees = {
         peopleCount,
@@ -346,11 +349,12 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
          medianAge,
          medianWorkload,
          averageWomenWorkload,      
-         
+         sortedByWorkload,
     };
 
     dtoOut.push(infoEmployees);
-    dtoOut.push(sortedByWorkload);
+    //dtoOut.push(sortedByWorkload);
+    
                                               
          
     
@@ -360,8 +364,11 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
 
 const result = main(dtoIn); //result variable = main function output
 
+const util = require('util');
+console.log(util.inspect(result, {showHidden: false, depth: null, colors: true}));
 
-
-console.log(result);
+/*source: 
+https://stackoverflow.com/questions/10729276/how-can-i-get-the-full-object-in-node-jss-console-log-rather-than-object
+*/
 
 //console.log(result); 
