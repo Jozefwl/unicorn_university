@@ -17,7 +17,7 @@ and other stackoverflow sources...
 
 //Declaring input data - this data serves as an input for the program
 const dtoIn = {
-    count: 1500, //number of employees to be generated
+    count: 15, //number of employees to be generated
     age: {
         min: 20, //minimum age of employee(s)
         max: 60  //maximum age of employee(s)
@@ -78,8 +78,8 @@ let workload30 = 0;
 let workload40 = 0;
 let averageAge = 0;
 let averageWomenWorkload = 0;
-let minAge = dtoIn.age.min;
-let maxAge = dtoIn.age.max;
+let minAge = 0;
+let maxAge = 0;
 let medianAge = 0;
 let medianWorkload = 0;
 let womenWorkLoad = 0;
@@ -374,6 +374,10 @@ function randomDateGenerator(ageMin, ageMax){
         //This calculates the age median 
         agesList.sort();
         medianAge = medianCalculation(peopleCount, agesList);
+
+        //this calculates the minimum and maximum age
+        minAge = Math.min(...agesList);
+        maxAge = Math.max(...agesList);
     
         //Creating the infoEmployees object with all the needed output data/variables
         infoEmployees = {
