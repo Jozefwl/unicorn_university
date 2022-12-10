@@ -21,3 +21,15 @@ Homework assignments from [Unicorn university](https://unicornuniversity.net/).
     list of employees sorted by workload ascending
 
 >Your program will contain function main() with one argument that will contain the dtoIn input data. Within the main function, you should call the function that generate the list of employees and then the function that calculate and return the requested values. The mainfunction will return dtoOut output data.
+
+## Assignment 4
+
+>Design and develop a program in the JavaScript programming language that follows the previous assignment assignment 2 - generates a list of employees. Extend your program to get the most common names in the generated list of employees:
+
+    all employes
+    females
+    males
+    females with part-time workload (10, 20 or 30hrs/week)
+    males with full-time workload (40hrs/week)
+
+>Your program will contain function main() with one argument that will contain the dtoIn input data. Within the main function, you should call the function that generate the list of employees and then the function that calculate and return the requested values. The mainfunction will return dtoOut output data.
