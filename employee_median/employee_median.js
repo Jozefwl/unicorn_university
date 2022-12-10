@@ -312,7 +312,7 @@ function randomDateGenerator(ageMin, ageMax){
         employee.birthdate = randomDateGenerator(ageMin, ageMax); //call date function 
         employee.workload = getRandom(1,5)*10; //max is is actually 4
     
-        workloadList.push(employee.workload);
+        workloadList.push(employee.workload);//add workload number to workloadlist for later
     
         if(employee.gender == "male"){ //when male
         employee.name = maleNames[getRandom(0,maleNames.length)];
