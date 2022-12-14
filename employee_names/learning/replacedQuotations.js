@@ -8,7 +8,7 @@ and other stackoverflow sources...
 
 //this is the input data to the program
 const dtoIn = {
-    count: 10,
+    count: 5,
     age: {
         min: 20,
         max: 60
@@ -18,7 +18,7 @@ const dtoIn = {
 
 
 
-//Error codes
+
 if(dtoIn.count < 0 ){   //if count is less than 0 (generate negative employees)
     const error = new Error('message')
     error.code = 'Wrong Input Count!' //throw Wrong Input Count error
@@ -243,7 +243,7 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
  
     
 
-    //Iterating every employee    
+
     for(let i = 0; i < peopleCount; i++){ //iterate for entire count
     let employee = {}; //make object employee   
 
@@ -308,15 +308,12 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
      });
     
     //console.log(allNamesCount);
-
-    //make arrays objects
     let all = Object.assign({}, allNamesCount);
     let male = Object.assign({}, maleNamesCount);
     let female = Object.assign({}, femaleNamesCount);
     let femalePartTime = Object.assign({}, namesCount(arrayFemalePartTime));
     let maleFullTime = Object.assign({}, namesCount(arrayMaleFullTime));
-   
-    //names object
+       
    names = {
     all, 
     male, 
@@ -325,13 +322,8 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
     maleFullTime,
    }
 
-
    mainOutputArray.push('names:', names);
 
-   //input is an array and output is an object
-   //TL:DR; counts all the keys and values and pushes into object
-
-   //key(s) got re-named to label
    function arrayToObject(arrayInput){
     let keys = Object.keys(arrayInput);
     let values = Object.values(arrayInput);
@@ -357,7 +349,6 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
    femalePartTime = arrayToObject(femalePartTime);
    maleFullTime = arrayToObject(maleFullTime);
 
-   //chartData object
    chartData = {
     all,
     male,
@@ -384,6 +375,4 @@ const result = main(dtoIn); //result variable = main function output
 
 const util = require('util'); 
 console.log(util.inspect(result, {showHidden: false, depth: null, colors: true}));
-
-
 //source: https://nodejs.org/api/util.html#util_util_inspect_object_options

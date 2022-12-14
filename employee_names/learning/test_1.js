@@ -191,6 +191,7 @@ for (let thisName of array) {
     return outputArray;
 }
 
+
 //A function which outputs a ISOstring birthdate based on the defined age-range input
 function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and max age and outputs ISO date
     let randomDay;     
@@ -290,29 +291,45 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
     const maleNamesCount = namesCount(allMales);
     const femaleNamesCount = namesCount(allFemales);
     const allNamesCount = namesCount(allNames);
-    const arrayFemalePartTime = [];
-    const arrayMaleFullTime = [];
+    let arrayFemalePartTime = [];
+    let arrayMaleFullTime = [];
 
-    for(let i=0; i<=peopleCount; i++){
+    for(let i=0; i<=allNames.length; i++){
         //Female Part-time
-
+    
         if(allGenders[i] == 'female' && allNamesWorkload[i] != 40){
-            arrayFemalePartTime[arrayFemalePartTime.length + 1] = allNamesCount[i];
+            arrayFemalePartTime[arrayFemalePartTime.length + 1] = allNames[i];
         } else if(allGenders[i] == 'male' && allNamesWorkload[i] == 40){
-            arrayMaleFullTime[arrayMaleFullTime.length + 1] = allNamesCount[i];
+            arrayMaleFullTime[arrayMaleFullTime.length + 1] = allNames[i];
         }
     }
-
+    
+    // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#parameters
+    
+    arrayMaleFullTime = arrayMaleFullTime.filter(
+        function( element ) {
+        return element !== undefined; //this iterative function has a callback function , which is defined in the brackets 
+                            }         //since its iterative it goes through all the elements and only returns if the element is not undefined
+     );                               //which is exactly what i need
+    
+     arrayFemalePartTime = arrayFemalePartTime.filter(function( element ) {
+        return element !== undefined;
+     });
+    
     //console.log(allNamesCount);
     let all = Object.assign({}, allNamesCount);
     let male = Object.assign({}, maleNamesCount);
     let female = Object.assign({}, femaleNamesCount);
-    let femalePartTime = Object.assign({}, arrayFemalePartTime);
-    let maleFullTime = Object.assign({}, arrayMaleFullTime);
+    let femalePartTime = Object.assign({}, namesCount(arrayFemalePartTime));
+    let maleFullTime = Object.assign({}, namesCount(arrayMaleFullTime));
    
-
-
-
+    /*
+    console.log(allGenders);
+    console.log(allNamesWorkload);
+    console.log(allNames);
+    console.log(allNamesCount);
+     */
+    
    names = {
     all, 
     male, 
@@ -321,9 +338,49 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
     maleFullTime,
    }
 
+   dtoOut.push('names:', names);
+
+   function arrayToObject(arrayInput){
+    let keys = Object.keys(arrayInput);
+    let values = Object.values(arrayInput);
+    let label, value;
+    let keysNvalues = [];
+    
+    outputObject = { //these values are undefined and when you're pushing them, you have to change the object not the variable
+        label,
+        value
+    }
+
+
+    for(let i=0; i<keys.length; i++){
+       outputObject.label = keys[i];
+       outputObject.value = values[i];
+       keysNvalues.push(outputObject);
+    }
+   
+    return keysNvalues;
+
+    }
+
+      
+   all = arrayToObject(allNamesCount);  
+   male = arrayToObject(maleNamesCount);
+   female = arrayToObject(femaleNamesCount);
+   femalePartTime = arrayToObject(femalePartTime);
+   maleFullTime = arrayToObject(maleFullTime);
+
+   chartData = {
+    all,
+    male,
+    female,
+    femalePartTime,
+    maleFullTime,
+   };
+
+   dtoOut.push('chartData:',chartData);
     
     
-    console.log('names:', names);
+    
 
    return dtoOut;
 
@@ -333,4 +390,6 @@ function randomDateGenerator(ageMin, ageMax){ //function gets input: min age and
 
 const result = main(dtoIn); //result variable = main function output
 
-//console.log(result);
+const util = require('util'); 
+console.log(util.inspect(result, {showHidden: false, depth: null, colors: true}));
+//source: https://nodejs.org/api/util.html#util_util_inspect_object_options
