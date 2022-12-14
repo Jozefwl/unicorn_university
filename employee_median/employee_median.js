@@ -17,7 +17,7 @@ and other stackoverflow sources...
 
 //Declaring input data - this data serves as an input for the program
 const dtoIn = {
-    count: 15, //number of employees to be generated
+    count: 1500, //number of employees to be generated
     age: {
         min: 20, //minimum age of employee(s)
         max: 60  //maximum age of employee(s)
@@ -408,6 +408,8 @@ function randomDateGenerator(ageMin, ageMax){
     const result = main(dtoIn); //result variable = main function output
 
 //This part of the code makes sure that the nested object actually logs and doesn't output an inspector
+
+
 const util = require('util'); 
 console.log(util.inspect(result, {showHidden: false, depth: null, colors: true}));
 //source: https://nodejs.org/api/util.html#util_util_inspect_object_options
