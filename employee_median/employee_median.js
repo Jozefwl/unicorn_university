@@ -17,11 +17,11 @@ and other stackoverflow sources...
 
 //Declaring input data - this data serves as an input for the program
 const dtoIn = {
-    count: 1500, //number of employees to be generated
+    count: 3, //number of employees to be generated
     age: {
         min: 20, //minimum age of employee(s)
         max: 60  //maximum age of employee(s)
-    }
+        }
 };
 
 //END OF USER EDITABLE PART ==========================================
@@ -54,7 +54,7 @@ const dtoIn = {
 */ 
 
 //Input error checking ---------------------------------------------------------
-if(dtoIn.count < 0 ){   //if count is less than 0 (generate negative employees)
+if(dtoIn.count < 3 ){   //if count is less than 3 (cant calculate median)
     const error = new Error("message")
     error.code = "Wrong Input Count!" //throw Wrong Input Count error
     throw error;
@@ -399,10 +399,12 @@ function randomDateGenerator(ageMin, ageMax){
         //dtoOut.push(sortedByWorkload);
         
                                                   
-             
+             /*
+        dtoOut = Object.assign({}, { dtoOut: dtoOut });
+        //console.log(Object.keys(dtoOut));
         
+        */
         return dtoOut; //returns dtoOut object
-        
     };
 
     const result = main(dtoIn); //result variable = main function output
@@ -412,5 +414,7 @@ function randomDateGenerator(ageMin, ageMax){
 
 const util = require('util'); 
 console.log(util.inspect(result, {showHidden: false, depth: null, colors: true}));
+
+
 //source: https://nodejs.org/api/util.html#util_util_inspect_object_options
 // -----------------------------------------------------------------------------------------------------

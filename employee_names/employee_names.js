@@ -8,7 +8,7 @@ and other stackoverflow sources...
 
 //this is the input data to the program
 const dtoIn = {
-    count: 10,
+    count: 3,
     age: {
         min: 20,
         max: 60
