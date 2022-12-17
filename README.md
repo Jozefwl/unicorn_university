@@ -14,7 +14,8 @@ O: **9**
 
 ### Example I/O
 
-I: ```
+I: 
+```
 const dtoIn = {
     count: 1,
     age: {
@@ -23,7 +24,8 @@ const dtoIn = {
     }
 };
 ```
-O: ```
+O: 
+```
 const dtoOut = {
     gender: 'male',
     birthdate: '1972-04-27T05:33:00.000Z',
@@ -31,7 +33,7 @@ const dtoOut = {
     surname: 'Němec',
     workload: 10
   }
-  ```
+```
 ## Assignment 3
 >Design and develop a program in the JavaScript programming language that follows the previous assignment BSDE 2022 Winter Zadání domácí úkol / homework assignment 03 - generates a list of employees. Extend your program to get the following values based on the generated list of employees:
 
@@ -49,7 +51,8 @@ const dtoOut = {
 
 ### Example I/O
 
-I: ```
+I: 
+```
 const dtoIn = {
     count: 3, //number of employees to be generated
     age: {
@@ -58,7 +61,8 @@ const dtoIn = {
         }
 };
 ```
-O: ```
+O: 
+```
 const dtoOut = {
     peopleCount: 3,
     workload10: 1,
@@ -112,7 +116,8 @@ const dtoOut = {
 
 ### Example I/O
 
-I: ```
+I: 
+```
 const dtoIn = {
     count: 3, //number of employees to be generated
     age: {
@@ -121,7 +126,8 @@ const dtoIn = {
         }
 };
 ```
-O: ```
+O: 
+```
 const dtoOut = {
   names: {
     all: { Hana: 1, 'Tomáš': 1, Ludmila: 1 },
@@ -141,4 +147,5 @@ const dtoOut = {
     femalePartTime: [ { label: 'Hana', value: 1 }, { label: 'Ludmila', value: 1 } ],
     maleFullTime: []
   }
-} ```
+} 
+```
