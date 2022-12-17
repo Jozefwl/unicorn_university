@@ -17,7 +17,7 @@ and other stackoverflow sources...
 
 //Declaring input data - this data serves as an input for the program
 const dtoIn = {
-    count: 3, //number of employees to be generated
+    count: 10, //number of employees to be generated
     age: {
         min: 20, //minimum age of employee(s)
         max: 60  //maximum age of employee(s)
@@ -54,7 +54,7 @@ const dtoIn = {
 */ 
 
 //Input error checking ---------------------------------------------------------
-if(dtoIn.count < 3 ){   //if count is less than 3 (cant calculate median)
+if(dtoIn.count < 2 ){   //if count is less than 3 (cant calculate median)
     const error = new Error("message")
     error.code = "Wrong Input Count!" //throw Wrong Input Count error
     throw error;
@@ -224,12 +224,13 @@ function getRandom(min, max) {
 
 //Median calculation based on https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/median/
 function medianCalculation(count,array){   
+        let sortedArray = array.sort();
         
         if(count%2 == 0){
-        medianOut = ( array[count/2] + array[(count/2) + 1] ) / 2;
+        medianOut = ( sortedArray[count/2]-1 + sortedArray[(count/2)] ) / 2;
         }
         if(count%3 == 0){
-        medianOut = array[Math.floor(count/2)];
+        medianOut = sortedArray[Math.round(count/2)-1];
         }
 
         return medianOut;
@@ -368,11 +369,9 @@ function randomDateGenerator(ageMin, ageMax){
         averageWomenWorkload = parseInt(averageWomenWorkload.toFixed(1)); //fixed floating point
        
         //This calculates the workload median
-        workloadList.sort();
         medianWorkload = medianCalculation(peopleCount, workloadList);
         
         //This calculates the age median 
-        agesList.sort();
         medianAge = medianCalculation(peopleCount, agesList);
 
         //this calculates the minimum and maximum age

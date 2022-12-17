@@ -1,0 +1,260 @@
+<UuApp.DesignKit.Algorithm data="<uu5json/>{
+  \"schemaVersion\": \"1.0.0\",
+  \"automaticGenerateErrorList\": true,
+  \"id\": \"d303db0f2c101496fa4b3bd4236e2240\",
+  \"statementList\": [
+    {
+      \"name\": \"Input data declaration\",
+      \"desc\": \"\",
+      \"definitions\": [
+        {
+          \"access\": \"ro\",
+          \"name\": \"dtoIn\",
+          \"defaultValue\": \"{\\n    count: 3, //number of employees to be generated\\n    age: {\\n        min: 20, //minimum age of employee(s)\\n        max: 60  //maximum age of employee(s)\\n    }\\n}\"
+        }
+      ],
+      \"id\": \"39f1cfac0930f42a9b9c8e94d896e807\",
+      \"comment\": \"\",
+      \"type\": \"variablesDefinition\",
+      \"label\": \"1.\"
+    },
+    {
+      \"conditional\": false,
+      \"condition\": \"\",
+      \"id\": \"051404fbfa61f4614a4b8ab530f06c02\",
+      \"name\": \"Input error checking\",
+      \"desc\": \"\",
+      \"comment\": \"\",
+      \"type\": \"sequence\",
+      \"label\": \"2.\",
+      \"statementList\": [
+        {
+          \"statementList\": [
+            {
+              \"name\": \"\",
+              \"desc\": \"\",
+              \"type\": \"if\",
+              \"id\": \"bbf26b79fdbbd4d0fa990bc388b41e7e\",
+              \"label\": \"2.1.A.\",
+              \"condition\": \"<uu5string /><UU5.Bricks.Span style=\\\"<uu5json />{\\\\\\\"fontFamily\\\\\\\":\\\\\\\"Courier\\\\\\\"}\\\">dtoIn.count &lt;= 0</UU5.Bricks.Span>\",
+              \"statementList\": [
+                {
+                  \"message\": \"\",
+                  \"params\": \"\",
+                  \"code\": \"Wrong Input Count!\",
+                  \"exception\": false,
+                  \"apiError\": true,
+                  \"conditional\": false,
+                  \"condition\": \"\",
+                  \"id\": \"43b6b9839faed4a51b8dd34a92be0454\",
+                  \"name\": \"Wrong input count of people\",
+                  \"desc\": \"\",
+                  \"comment\": \"\",
+                  \"type\": \"error\",
+                  \"label\": \"2.1.A.1.\"
+                }
+              ]
+            },
+            {
+              \"condition\": \"<uu5string /><UU5.Bricks.Span style=\\\"<uu5json />{\\\\\\\"fontFamily\\\\\\\":\\\\\\\"Courier\\\\\\\"}\\\">dtoIn.age.min &lt;= 0</UU5.Bricks.Span>\",
+              \"id\": \"02c0aa393dcf44decab80cef8cb7f8e5\",
+              \"name\": \"\",
+              \"desc\": \"\",
+              \"comment\": \"\",
+              \"type\": \"elseIf\",
+              \"label\": \"2.1.B.\",
+              \"statementList\": [
+                {
+                  \"message\": \"\",
+                  \"params\": \"\",
+                  \"code\": \"Wrong Input Minimum Age!\",
+                  \"exception\": false,
+                  \"apiError\": true,
+                  \"conditional\": false,
+                  \"condition\": \"\",
+                  \"id\": \"315737847b11040cc8abc2938cfa0a8c\",
+                  \"name\": \"Wrong input of minimum age\",
+                  \"desc\": \"\",
+                  \"comment\": \"\",
+                  \"type\": \"error\",
+                  \"label\": \"2.1.B.1.\"
+                }
+              ]
+            },
+            {
+              \"condition\": \"<uu5string /><UU5.Bricks.Span style=\\\"<uu5json />{\\\\\\\"fontFamily\\\\\\\":\\\\\\\"Courier\\\\\\\"}\\\">dtoIn.age.max &gt; 150</UU5.Bricks.Span>\",
+              \"id\": \"2c9a9a5030a5645848c82eaa9c526519\",
+              \"name\": \"\",
+              \"desc\": \"\",
+              \"comment\": \"\",
+              \"type\": \"elseIf\",
+              \"label\": \"2.1.C.\",
+              \"statementList\": [
+                {
+                  \"message\": \"\",
+                  \"params\": \"\",
+                  \"code\": \"Wrong Input Maximum Age!\",
+                  \"exception\": false,
+                  \"apiError\": true,
+                  \"conditional\": false,
+                  \"condition\": \"\",
+                  \"id\": \"ee265e7762c7841c090366fa8c5f340e\",
+                  \"name\": \"Wrong input of maximum age\",
+                  \"desc\": \"\",
+                  \"comment\": \"\",
+                  \"type\": \"error\",
+                  \"label\": \"2.1.C.1.\"
+                }
+              ]
+            }
+          ],
+          \"id\": \"c335910b63de6498ab29dd9e2b432c5e\",
+          \"name\": \"\",
+          \"desc\": \"\",
+          \"comment\": \"\",
+          \"type\": \"selectionIf\",
+          \"label\": \"2.1.\"
+        }
+      ]
+    },
+    {
+      \"definitions\": [
+        {
+          \"comment\": \"Declaring output data - this data serves as an intermediary for operations done in the program\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"workload10\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"workload20\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"workload30\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"workload40\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"averageAge\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"averageWomenWorkload\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"minAge\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"maxAge\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"medianAge\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"medianWorkload\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"womenWorkLoad\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"womenWorkCount\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"sumOfAges\",
+          \"defaultValue\": \"0\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"agesList\",
+          \"defaultValue\": \"[]\"
+        },
+        {
+          \"access\": \"rw\",
+          \"name\": \"workloadList\",
+          \"defaultValue\": \"[]\"
+        },
+        {
+          \"comment\": \" NAMES ARRAYS START ----------------------\"
+        },
+        {
+          \"comment\": \"27 female and 27 male names & surnames\"
+        },
+        {
+          \"access\": \"ro\",
+          \"name\": \"maleNames\",
+          \"defaultValue\": \"[]\"
+        },
+        {
+          \"access\": \"ro\",
+          \"name\": \"femaleNames\",
+          \"defaultValue\": \"[]\"
+        },
+        {
+          \"access\": \"ro\",
+          \"name\": \"maleSurnames\",
+          \"defaultValue\": \"[]\"
+        },
+        {
+          \"access\": \"ro\",
+          \"name\": \"femaleSurnames\",
+          \"defaultValue\": \"[]\"
+        },
+        {
+          \"comment\": \" NAMES ARRAYS END -----------------------\"
+        }
+      ],
+      \"id\": \"7d6d36aaf5a794f49838022f0a670ad3\",
+      \"name\": \"\",
+      \"desc\": \"Declaration of output data and male names, female names.\",
+      \"comment\": \"\",
+      \"type\": \"variablesDefinition\",
+      \"label\": \"3.\"
+    }
+  ],
+  \"variablesCache\": {
+    \"statementMap\": {},
+    \"variableMap\": {},
+    \"global\": {}
+  },
+  \"input\": [
+    {
+      \"access\": \"ro\",
+      \"name\": \"dtoIn\",
+      \"defaultValue\": \"{\\n    count: 3, //number of employees to be generated\\n    age: {\\n        min: 20, //minimum age of employee(s)\\n        max: 60  //maximum age of employee(s)\\n    }\\n}\"
+    }
+  ],
+  \"output\": [
+    {
+      \"access\": \"ro\",
+      \"name\": \"dtoOut\",
+      \"defaultValue\": \"[\\n  {\\n    peopleCount: 3,\\n    workload10: 1,\\n    workload20: 1,\\n    workload30: 1,\\n    workload40: 0,\\n    averageAge: 38,\\n    minAge: 24,\\n    maxAge: 47,\\n    medianAge: 44,\\n    medianWorkload: 20,\\n    averageWomenWorkload: 30,\\n    sortedByWorkload: [\\n      {\\n        gender: 'male',\\n        birthdate: '1975-07-19T16:10:00.000Z',\\n        workload: 10,\\n        name: 'Vojtěch',\\n        surname: 'Kopecký'\\n      },\\n      {\\n        gender: 'male',\\n        birthdate: '1978-08-01T17:12:00.000Z',\\n        workload: 20,\\n        name: 'Vojtěch',\\n        surname: 'Urban'\\n      },\\n      {\\n        gender: 'female',\\n        birthdate: '1998-08-29T10:58:00.000Z',\\n        workload: 30,\\n        name: 'Petra',\\n        surname: 'Šimková'\\n      }\\n    ]\\n  }\\n]\"
+    }
+  ],
+  \"name\": \"Employee median calculation\",
+  \"desc\": \"\",
+  \"errorPrefix\": \"\"
+}"/>
